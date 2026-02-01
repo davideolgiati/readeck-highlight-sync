@@ -1,10 +1,10 @@
 {
-    "id": "readeck-sync",
-    "name": "Readeck Sync",
+    "id": "readeck-highlights-sync",
+    "name": "Readeck Highlights Sync",
     "version": "1.0.0",
     "minAppVersion": "0.15.0",
-    "description": "Sync highlights from your local Readeck instance to Obsidian",
-    "author": "Your Name",
-    "authorUrl": "https://github.com/yourusername",
+    "description": "Sync highlights from your Readeck instance to Obsidian",
+    "author": "Davide Olgiati",
+    "authorUrl": "https://github.com/davideolgiati",
     "isDesktopOnly": false
 }

@@ -30,7 +30,7 @@ export class ReadeckSettingTab extends PluginSettingTab {
         const { containerEl } = this
         containerEl.empty()
 
-        containerEl.createEl("h2", { text: "Readeck Sync Settings" })
+        containerEl.createEl("h2", { text: "Readeck Highlights Sync Settings" })
 
         addRemoteURLTextBox(containerEl, this.plugin.settings.readeckUrl, remoteURLChangeCallback)
         addApiTokenTextBox(containerEl, this.plugin.settings.apiToken, apiTokenChangeCallback)
