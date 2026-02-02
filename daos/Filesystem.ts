@@ -9,7 +9,7 @@ export async function ensureFolderExists(folderPath: string, vault: Vault): Prom
 
 export function sanitizeFileName(name: string): string {
     return name
-        .replace(/[\\/:*?"<>|]/g, "-")
+        .replace(/[\\/:*?"<>|!^]/g, "_")
         .replace(/\s+/g, " ")
         .trim()
 }
