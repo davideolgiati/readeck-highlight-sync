@@ -1,14 +1,14 @@
 {
     "name": "obsidian-readeck-sync",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "description": "Sync highlights from Readeck to Obsidian",
     "main": "main.js",
     "scripts": {
         "lint": "eslint . --ext .ts",
         "lint:fix": "eslint . --ext .ts --fix",
         "dev": "node esbuild.config.mjs",
-        "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
-        "version": "node version-bump.mjs && git add manifest.json versions.json",
+        "build": "jest && tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+        "version": "node version-bump.mjs && npm i && git add manifest.json package.json package-lock.json",
         "test": "jest"
     },
     "keywords": [],
