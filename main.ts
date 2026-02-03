@@ -15,23 +15,21 @@ export default class ReadeckHighlightsSyncPlugin extends Plugin {
             await this.syncReadeck()
         }
 
-        await this.loadSettings(),
+        await this.loadSettings()
         this.backend = new ReadeckBackend(
             this.settings.readeckUrl,
             this.settings.apiToken,
         )
 
-        this.setupRibbon(callback),
-        this.setupCommand(callback),
+        this.setupRibbon(callback)
+        this.setupCommand(callback)
         this.addSettingTab(new ReadeckSettingTab(this.app, this))
     }
 
     async loadSettings(): Promise<void> {
-        console.log("Loading settings ...")
         this.settings = Object.assign(
             {}, getDefaultReadeckSettings(), await this.loadData(),
         ) as ReadeckSettings
-        console.log("Loaded settings ...", this.settings)
     }
 
     setupRibbon(callback: () => Promise<void>): void {
@@ -51,9 +49,7 @@ export default class ReadeckHighlightsSyncPlugin extends Plugin {
     }
 
     async saveSettings(): Promise<void> {
-        console.log("Saving settings ...")
         await this.saveData(this.settings)
-        console.log("Saved settings ...", this.settings)
     }
 
     async syncReadeck(): Promise<void> {

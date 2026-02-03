@@ -37,7 +37,7 @@ export class ReadeckBackend {
                 options.headers,
             )
             const method = (options.method ?? "GET")
-            const body = (options.body !== undefined && options.body !== null) ? String(options.body) : undefined
+            const body = getFormattedBody(options)
 
             const result = await requestUrl({
                 url,
@@ -98,6 +98,18 @@ export class ReadeckBackend {
 
         return Object.values(data)
     }
+}
+
+function getFormattedBody(options: RequestInit): string | undefined {
+    if(options.body !== undefined && options.body !== null) {
+        return undefined
+    }
+    
+    if (typeof options.body === "string") { 
+        return options.body
+    } 
+    
+    return JSON.stringify(options.body)
 }
 
 function mergeHeaders(defaultHeaders: Record<string, string>, requestHeaders: HeadersInit | undefined): Record<string, string> {
