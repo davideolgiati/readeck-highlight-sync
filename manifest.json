@@ -3,7 +3,7 @@
     "name": "Readeck Highlights Sync",
     "version": "1.0.0",
     "minAppVersion": "0.15.0",
-    "description": "Sync highlights from your Readeck instance to Obsidian",
+    "description": "Sync highlights from your Readeck instance.",
     "author": "Davide Olgiati",
     "authorUrl": "https://github.com/davideolgiati",
     "isDesktopOnly": false
