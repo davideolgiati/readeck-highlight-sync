@@ -30,15 +30,13 @@ export class ReadeckSettingTab extends PluginSettingTab {
         const { containerEl } = this
         containerEl.empty()
 
-        containerEl.createEl("h2", { text: "Readeck Highlights Sync Settings" })
-
         addRemoteURLTextBox(containerEl, this.plugin.settings.readeckUrl, remoteURLChangeCallback)
         addApiTokenTextBox(containerEl, this.plugin.settings.apiToken, apiTokenChangeCallback)
         addConnectionTestButton(containerEl, connectionTestFn)
 
         new Setting(containerEl)
-            .setName("Sync Folder")
-            .setDesc("Folder where Readeck articles will be saved")
+            .setName("Sync folder")
+            .setDesc("Folder where readeck articles will be saved")
             .addText(text => text
                 .setPlaceholder("Readeck")
                 .setValue(this.plugin.settings.syncFolder)
@@ -48,33 +46,25 @@ export class ReadeckSettingTab extends PluginSettingTab {
                 }))
 
         new Setting(containerEl)
-            .setName("Last Sync")
+            .setName("Last sync")
             .setDesc(this.plugin.settings.lastSyncTime > 0
                 ? `Last synced: ${new Date(this.plugin.settings.lastSyncTime).toLocaleString()}`
                 : "Never synced")
             .addButton(button => button
-                .setButtonText("Reset Sync Status")
+                .setButtonText("Reset sync status")
                 .onClick(async () => {
                     this.plugin.settings.lastSyncTime = 0
                     await this.plugin.saveSettings()
                     this.display() // Refresh settings display
                     new Notice("Sync status reset")
                 }))
-
-        // Add instructions
-        containerEl.createEl("h3", { text: "How to get your API token:" })
-        const instructions = containerEl.createEl("ol")
-        instructions.createEl("li", { text: "Open your Readeck instance in a browser" })
-        instructions.createEl("li", { text: "Go to Settings → API" })
-        instructions.createEl("li", { text: "Create a new API token or copy an existing one" })
-        instructions.createEl("li", { text: "Paste the token above and click \"Test\" to verify" })
     }
 }
 
 function addRemoteURLTextBox(container: HTMLElement, currentURL: string, callback: (value: string) => Promise<void>): void {
     new Setting(container)
-        .setName("Readeck URL")
-        .setDesc("URL of your Readeck instance (e.g., http://localhost:8000)")
+        .setName("Readeck url")
+        .setDesc("URL of your readeck instance (e.g., http://localhost:8000)")
         .addText(text => text
             .setPlaceholder("http://localhost:8000")
             .setValue(currentURL)
@@ -83,10 +73,10 @@ function addRemoteURLTextBox(container: HTMLElement, currentURL: string, callbac
 
 function addApiTokenTextBox(container: HTMLElement, currentToken: string, callback: (value: string) => Promise<void>): void {
     new Setting(container)
-        .setName("API Token")
-        .setDesc("Your Readeck API token (find it in Readeck settings)")
+        .setName("Api token")
+        .setDesc("Your readeck api token (find it in readeck settings)")
         .addText(text => {
-            text.setPlaceholder("Enter API token")
+            text.setPlaceholder("Enter api token")
                 .setValue(currentToken)
                 .onChange(async (value) => await callback(value))
             text.inputEl.type = "password"
@@ -95,8 +85,8 @@ function addApiTokenTextBox(container: HTMLElement, currentToken: string, callba
 
 function addConnectionTestButton(container: HTMLElement, testFn: (value: string) => Promise<void>): void {
     new Setting(container)
-        .setName("Test Connection")
-        .setDesc("Test your Readeck connection and API token")
+        .setName("Test connection")
+        .setDesc("Test your readeck connection and api token")
         .addButton(button => button
             .setButtonText("Test")
             .onClick(async () => {

@@ -16,12 +16,12 @@ export function getDefaultReadeckSettings(): ReadeckSettings {
 
 export function validateApiKey(settings: ReadeckSettings): void {
     if (settings.apiToken === "") {
-        throw new Error("Please configure Readeck API token in settings tab")
+        throw new Error("Please configure readeck api token in settings tab")
     }
 }
 
 export function validateRemoteUrl(settings: ReadeckSettings): void {
     if (settings.readeckUrl === "") {
-        throw new Error("Please configure Readeck URL in settings tab")
+        throw new Error("Please configure readeck url in settings tab")
     }
 }

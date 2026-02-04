@@ -35,7 +35,7 @@ export default class ReadeckHighlightsSyncPlugin extends Plugin {
     setupRibbon(callback: () => Promise<void>): void {
         this.addRibbonIcon(
             "sync",
-            "Fetch Highlights from Readeck",
+            "Fetch highlights from readeck",
             callback,
         )
     }
@@ -43,7 +43,7 @@ export default class ReadeckHighlightsSyncPlugin extends Plugin {
     setupCommand(callback: () => Promise<void>): void {
         this.addCommand({
             id: "sync-readeck",
-            name: "Fetch Highlights from Readeck",
+            name: "Fetch highlights from readeck",
             callback,
         })
     }
@@ -53,7 +53,7 @@ export default class ReadeckHighlightsSyncPlugin extends Plugin {
     }
 
     async syncReadeck(): Promise<void> {
-        new Notice("Fetching Highlight from Readeck...")
+        new Notice("Fetching highlight from readeck...")
 
         try {
             validateApiKey(this.settings)
